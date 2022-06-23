@@ -1,39 +1,33 @@
 <template>
-	<h2>체크박스 양방향</h2>
-	<label for="checkbox">{{ checkBoxValue }}</label>
-	<input type="checkbox" id="checkbox" v-model="checkBoxValue" />
-	<h2>라디오 양방향</h2>
-	<label>
-		<input type="radio" name="type" value="O" v-model="radioValue" />
-		O형
-	</label>
-	<label>
-		<input type="radio" name="type" value="A" v-model="radioValue" />
-		A형
-	</label>
-	<label>
-		<input type="radio" name="type" value="B" v-model="radioValue" />
-		B형
-	</label>
-	<div>{{ radioValue }}</div>
-	<h2>셀렉트 양방향</h2>
-	<select v-model="selectValue">
-		<option value="html">html</option>
-		<option value="css">css</option>
-		<option value="javascript">javascript</option>
-	</select>
-	<div>{{ selectValue }}</div>
+	<div></div>
 </template>
 
 <script>
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 
 export default {
 	setup() {
-		const checkBoxValue = ref(false);
-		const radioValue = ref('O');
-		const selectValue = ref('javascript');
-		return { checkBoxValue, radioValue, selectValue };
+		const x = ref(0);
+		const y = ref(0);
+
+		// single ref
+		watch(x, newX => {
+			console.log(`x 는 ${newX}`);
+		});
+
+		// getter
+		watch(
+			() => x.value + y.value,
+			sum => {
+				console.log(`x + y : ${sum}`);
+			},
+		);
+
+		// array of multiple sources
+		watch([x, y], ([newX, newY]) => {
+			console.log(`x is ${newX} and y is ${newY}`);
+		});
+		return { x, y };
 	},
 };
 </script>
