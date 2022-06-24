@@ -1,18 +1,49 @@
 <template>
 	<div class="card" style="width: 18rem">
 		<div class="card-body">
-			<h5 class="card-title">Card title</h5>
-			<p class="card-text">
-				Some quick example text to build on the card title and make up the bulk of the card's content.
-			</p>
-			<a href="#" class="btn btn-primary">Go somewhere</a>
+			<span class="badge bg-secondary">{{ typeName }}</span>
+			<h5 class="card-title mt-2">{{ title }}</h5>
+			<p class="card-text">{{ contents }}</p>
+			<a href="#" class="btn" :class="isLikeClass">좋아요</a>
 		</div>
 	</div>
 </template>
 
 <script>
+import { computed } from 'vue';
+
 export default {
-	name: 'AppCard',
+	props: {
+		type: {
+			type: String,
+			default: 'news',
+			validator: value => {
+				return ['news', 'notice'].includes(value);
+			},
+		},
+		title: {
+			type: String,
+			required: true,
+		},
+		contents: {
+			type: String,
+			required: true,
+		},
+		isLike: {
+			type: Boolean,
+			required: false,
+		},
+		obj: {
+			type: Object,
+			default: () => {},
+		},
+	},
+	setup(props) {
+		console.log('props title.value? :', props.title);
+		const isLikeClass = computed(() => (props.isLike ? 'btn-danger' : 'btn-outline-danger'));
+		const typeName = computed(() => (props.type === 'news' ? '뉴스' : '공지사항'));
+		return { isLikeClass, typeName };
+	},
 };
 </script>
 
