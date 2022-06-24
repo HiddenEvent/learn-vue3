@@ -2,14 +2,18 @@
 	<main>
 		<div class="container">
 			<div class="row">
-				<div class="col"></div>
-				<div class="col"></div>
-				<div class="col"></div>
+				<div class="col">
+					<AppCard></AppCard>
+				</div>
+				<div class="col">
+					<AppCard></AppCard>
+				</div>
+				<div class="col"><AppCard></AppCard></div>
 			</div>
 			<div class="row">
-				<div class="col"></div>
-				<div class="col"></div>
-				<div class="col"></div>
+				<div class="col"><AppCard></AppCard></div>
+				<div class="col"><AppCard></AppCard></div>
+				<div class="col"><AppCard></AppCard></div>
 			</div>
 		</div>
 	</main>
@@ -17,6 +21,8 @@
 
 <script>
 export default {
+	components: {},
+
 	setup() {
 		return {};
 	},
