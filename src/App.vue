@@ -12,6 +12,7 @@
 import TheNav from './components/TheNav.vue';
 import TheView from './components/TheView.vue';
 import FancyButton from './components/FancyButton.vue';
+import { inject } from 'vue';
 
 export default {
 	components: {
@@ -20,6 +21,8 @@ export default {
 		FancyButton,
 	},
 	setup() {
+		const msg = inject('msg');
+		console.log(msg);
 		return {};
 	},
 };

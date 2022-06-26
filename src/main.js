@@ -5,5 +5,6 @@ import AppCard from '@/components/AppCard.vue';
 
 const app = createApp(App);
 app.component('AppCard', AppCard);
+app.provide('msg', 'hello msg'); /*전역 변수*/
 app.mount('#app');
 import 'bootstrap/dist/js/bootstrap.js';
