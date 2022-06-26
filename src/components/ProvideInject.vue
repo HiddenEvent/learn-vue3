@@ -20,9 +20,12 @@ export default {
 	setup() {
 		const staticMessage = 'static message';
 		const message = ref('message');
+		const updateMessage = appendMessage => {
+			message.value = message.value + appendMessage;
+		};
 		const count = ref(10);
 		provide('static-message', staticMessage);
-		provide('message', message);
+		provide('message', { message, updateMessage });
 		provide('count', count);
 		return { staticMessage, message, count };
 	},

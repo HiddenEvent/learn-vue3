@@ -15,7 +15,8 @@ import { inject } from 'vue';
 export default {
 	setup() {
 		const staticMessage = inject('static-message', '값이 없으면 디폴트');
-		const message = inject('message');
+		const { message, updateMessage } = inject('message');
+		updateMessage('!');
 		const count = inject('count');
 		return { staticMessage, message, count };
 	},
