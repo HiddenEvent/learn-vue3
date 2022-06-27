@@ -8,6 +8,7 @@
 
 <script setup>
 import { ref } from 'vue';
+import axios from 'axios';
 import PostCreate from './setup/PostCreate.vue';
 
 const msg = 'Hellow world';
@@ -15,6 +16,8 @@ const refMsg = ref('');
 const sayHello = () => {
 	alert('Hello World!');
 };
+const response = await axios('https://dummy.restapiexample.com/api/v1/employees');
+console.log('response : ', response);
 </script>
 
 <style scoped></style>
