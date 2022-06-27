@@ -1,13 +1,18 @@
 <template>
 	<div class="container py-4">
 		<input ref="inputRef" type="text" value="hellow world" />
+		<LifecycleChild></LifecycleChild>
 	</div>
 </template>
 
 <script>
 import { onBeforeMount, onMounted, ref } from 'vue';
+import LifecycleChild from './LifecycleChild.vue';
 
 export default {
+	components: {
+		LifecycleChild,
+	},
 	setup() {
 		console.log('setup');
 		const inputRef = ref(null);
@@ -15,7 +20,7 @@ export default {
 			console.log('onBeforeMount', inputRef.value); /*Dom 데이터를 읽어 올 수 없음*/
 		});
 		onMounted(() => {
-			console.log('onMounted', inputRef.value); /*Dom 데이터를 읽어온다.*/
+			console.log('onMounted', inputRef.value.value); /*Dom 데이터를 읽어온다.*/
 		});
 		return { inputRef };
 	},
