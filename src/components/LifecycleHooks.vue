@@ -1,0 +1,34 @@
+<template>
+	<div class="container py-4">
+		<input ref="inputRef" type="text" value="hellow world" />
+	</div>
+</template>
+
+<script>
+import { onBeforeMount, onMounted, ref } from 'vue';
+
+export default {
+	setup() {
+		console.log('setup');
+		const inputRef = ref(null);
+		onBeforeMount(() => {
+			console.log('onBeforeMount', inputRef.value); /*Dom 데이터를 읽어 올 수 없음*/
+		});
+		onMounted(() => {
+			console.log('onMounted', inputRef.value); /*Dom 데이터를 읽어온다.*/
+		});
+		return { inputRef };
+	},
+	// data: () => ({
+	// 	dataMessage: 'dataMessage',
+	// }),
+	// beforeCreate() {
+	// 	console.log('beforeCreate : ', this.dataMessage); /*data 접근할 수 없음*/
+	// },
+	// created() {
+	// 	console.log('created : ', this.dataMessage); /*data 접근 가능*/
+	// },
+};
+</script>
+
+<style scoped></style>

@@ -1,16 +1,14 @@
 <template>
 	<main>
-		<div className="container py-4">
-			<ProvideInject></ProvideInject>
-		</div>
+		<LifecycleHooks></LifecycleHooks>
 	</main>
 </template>
 
 <script>
-import ProvideInject from './ProvideInject.vue';
+import LifecycleHooks from './LifecycleHooks.vue';
 export default {
 	components: {
-		ProvideInject,
+		LifecycleHooks,
 	},
 	setup() {},
 };
