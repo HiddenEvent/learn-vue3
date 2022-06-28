@@ -17,7 +17,14 @@ const sayHello = () => {
 	alert('Hello World!');
 };
 const response = await axios('https://dummy.restapiexample.com/api/v1/employees');
+// eslint-disable-next-line no-debugger
+debugger;
 console.log('response : ', response);
+// async function callAPi() {
+// 	const response = await axios('https://dummy.restapiexample.com/api/v1/employees');
+// 	console.log(response);
+// }
+// callAPi();
 </script>
 
 <style scoped></style>
